@@ -2,15 +2,13 @@ source 'https://rubygems.org'
 
 
 gem 'rails', '4.2.6'
-
-gem 'rails-api'
-
-gem 'spring', :group => :development
+gem 'rails-api', '~> 0.4.0'
 
 
-gem 'sqlite3'
-
-
+group :development do
+  gem 'spring', '~> 1.7.1'
+  gem 'thin', '~> 1.7.0'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

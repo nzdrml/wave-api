@@ -7,6 +7,12 @@ gem 'rails-api', '~> 0.4.0'
 # Use postgresql as database
 gem 'pg', '~> 0.18.4'
 
+gem 'active_model_serializers', '~> 0.10.0'
+
+gem 'reform', '~> 2.1.0'
+
+gem 'devise', '~> 4.1.1'
+
 
 group :development do
   gem 'spring', '~> 1.7.1'

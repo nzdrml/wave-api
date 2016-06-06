@@ -1,16 +1,18 @@
 source 'https://rubygems.org'
 
-
 gem 'rails', '4.2.6'
 gem 'rails-api', '~> 0.4.0'
 
-# Use postgresql as database
+# PostgreSQL as database
 gem 'pg', '~> 0.18.4'
 
+# Serializers for customizing JSON responses
 gem 'active_model_serializers', '~> 0.10.0'
 
+# Reform for forms and validations
 gem 'reform', '~> 2.1.0'
 
+# Devise for user authenticaton
 gem 'devise', '~> 4.1.1'
 
 

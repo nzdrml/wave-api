@@ -16,7 +16,9 @@ class UsersController < ApplicationController
 
       render :json => form.model
     else
-      render :json => { :message => form.errors }, :status => :unprocessable_entity
+      render(
+        :json => {:message => form.errors}, :status => :unprocessable_entity
+      )
     end
   end
 

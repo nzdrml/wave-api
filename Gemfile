@@ -18,10 +18,18 @@ gem 'devise', '~> 4.1.1'
 # Doorkeeper for OAuth
 gem 'doorkeeper', '~> 3.1.0'
 
+# Unicorn for remote server
+gem 'unicorn', '~> 5.1.0'
 
 group :development do
   gem 'spring', '~> 1.7.1'
   gem 'thin', '~> 1.7.0'
+
+  # Capistrano for deployment
+  gem 'capistrano', '~> 3.5.0'
+  gem 'capistrano-rails', '~> 1.1.7'
+  gem 'capistrano-bundler', '~> 1.1.4'
+  gem 'capistrano-rvm', '~> 0.1.2'
 end
 
 # To use ActiveModel has_secure_password

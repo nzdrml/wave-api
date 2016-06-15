@@ -20,13 +20,15 @@ class ApplicationController < ActionController::API
   end
 
   def allowed_origin
-    if self.development_origin?
+    if self.production_origin? || self.development_origin?
       headers['Access-Control-Allow-Origin'] = request.headers['Origin']
     end
   end
 
-  # Checks the origin of the client and assigns to request header.
-  # Allow localhost:3000 as origin
+  def production_origin?
+    !!(/\Ahttp:\/\/128.199.232.120\z/ =~ request.headers['Origin']) && Rails.env.production?
+  end
+
   def development_origin?
     !!(/\Ahttp:\/\/localhost:3000\z/ =~ request.headers['Origin']) && Rails.env.development?
   end

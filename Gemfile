@@ -15,6 +15,9 @@ gem 'reform', '~> 2.1.0'
 # Devise for user authenticaton
 gem 'devise', '~> 4.1.1'
 
+# Doorkeeper for OAuth
+gem 'doorkeeper', '~> 3.1.0'
+
 
 group :development do
   gem 'spring', '~> 1.7.1'

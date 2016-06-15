@@ -57,6 +57,8 @@ GEM
       declarative (~> 0.0.6)
       representable (>= 2.4.0, <= 3.1.0)
       uber
+    doorkeeper (3.1.0)
+      railties (>= 3.2)
     erubis (2.7.0)
     eventmachine (1.2.0.1)
     globalid (0.3.6)
@@ -142,6 +144,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers (~> 0.10.0)
   devise (~> 4.1.1)
+  doorkeeper (~> 3.1.0)
   pg (~> 0.18.4)
   rails (= 4.2.6)
   rails-api (~> 0.4.0)

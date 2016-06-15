@@ -8,7 +8,10 @@ Rails.application.routes.draw do
 
   resources :users, :only => [:index, :show, :create]
 
+  resources :points, :only => [:index, :show, :create]
+
   post '/login', :to => 'sessions#create', :as => :login
+
   delete '/logout', :to => 'sessions#destroy', :as => :logout
 
   # Example of regular route:

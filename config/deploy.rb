@@ -27,7 +27,7 @@ set :repo_url, 'git@github.com:nzdrml/wave-api.git'
 # set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 
 # Default value for linked_dirs is []
-set :linked_files, %w{config/secrets.yml}
+set :linked_files, %w{config/secrets.yml config/database.yml}
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets public/system}
 
 # Default value for default_env is {}

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   devise_for :users, :only => []
 
+  match '*all', :to => 'application#preflight', :via => [:options]
+
   root 'application#index'
 
   resources :users, :only => [:index, :show, :create]

@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < BaseController
 
   skip_before_action :authenticate_user_from_token!
 

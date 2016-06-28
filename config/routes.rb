@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
 
-  use_doorkeeper
-
   devise_for :users, :only => []
 
-  match '*all', :to => 'application#preflight', :via => [:options]
+  match '*all', :to => 'base#preflight', :via => [:options]
 
   root 'application#index'
 

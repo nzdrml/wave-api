@@ -2,7 +2,7 @@ class CustomTokensController < Doorkeeper::TokensController
 
   include AbstractController::Callbacks
 
-  before_filter :allow_cross_origin_requests
+  before_action :allow_cross_origin_requests
 
 
   def allow_cross_origin_requests

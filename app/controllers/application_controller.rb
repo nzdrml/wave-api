@@ -4,16 +4,22 @@ class ApplicationController < ActionController::API
 
 
   before_action :allow_cross_origin_requests
-
   before_action :authenticate_user_from_token!
-
   before_action :doorkeeper_authorize!
 
+  skip_before_action :authenticate_user_from_token!, :only => [:preflight]
+  skip_before_action :doorkeeper_authorize!, :only => [:preflight]
+
+
+  def preflight
+    render nothing: true
+  end
 
   def allow_cross_origin_requests
     self.allowed_origin
 
     headers['Access-Control-Request-Method'] = '*'
+    headers['Access-Control-Allow-Origin'] = '*'
     headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
     headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
     headers['Access-Control-Max-Age'] = '1728000'

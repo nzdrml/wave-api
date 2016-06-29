@@ -1,7 +1,7 @@
-class BookingsController < ApplicationController
+class BookingsController < BaseController
 
   skip_before_action :authenticate_user_from_token!,
-    :except => [:create, :user_bookings]
+    :only => [:index, :show]
 
 
   def index

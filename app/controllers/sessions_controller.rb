@@ -1,4 +1,6 @@
-class SessionsController < ApplicationController
+class SessionsController < BaseController
+  
+  before_action :allow_cross_origin_requests
 
   skip_before_action :authenticate_user_from_token!,
     :only => [:create, :destroy]
@@ -23,6 +25,14 @@ class SessionsController < ApplicationController
     end
 
     render :json => {:success => true}
+  end
+
+  def allow_cross_origin_requests
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Request-Method'] = '*'
+    headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
+    headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+    headers['Access-Control-Max-Age'] = '1728000'
   end
 
 

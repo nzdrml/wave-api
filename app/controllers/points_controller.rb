@@ -1,4 +1,4 @@
-class PointsController < ApplicationController
+class PointsController < BaseController
 
   skip_before_action :authenticate_user_from_token!
 

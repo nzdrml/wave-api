@@ -16,7 +16,9 @@ Rails.application.routes.draw do
 
   resources :routes, :only => [:index, :show, :create]
 
-  # get '/user_bookings', :to => 'bookings#user_bookings', :as => :user_bookings
+  resources :bookings, :only => [:index, :show, :create]
+
+  get '/user_bookings', :to => 'bookings#user_bookings', :as => :user_bookings
 
   post '/login', :to => 'sessions#create', :as => :login
 

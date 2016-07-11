@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
   has_many :accesses, :dependent => :destroy
 
+  has_many :bookings
+
 
   def self.find_for_database_authentication warden_conditions
     conditions = warden_conditions.dup

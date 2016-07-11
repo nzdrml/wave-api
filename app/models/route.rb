@@ -1,4 +1,4 @@
-class Booking < ActiveRecord::Base
+class Route < ActiveRecord::Base
 
   belongs_to :origin, :foreign_key => 'origin_id', :class_name => 'Point'
   belongs_to :destination,

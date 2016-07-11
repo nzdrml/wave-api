@@ -1,12 +1,12 @@
 class BookingForm < Reform::Form
 
-  properties :origin_id, :destination_id, :user, :schedule
+  properties :route_id, :user_id, :schedule
 
-  validates :origin_id, :destination_id, :schedule, :presence => true
+  validates :route_id, :presence => true
 
 
   def set_user user
-    self.user = user
+    self.user_id = user.id
   end
 
 end

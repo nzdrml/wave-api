@@ -1,7 +1,6 @@
 class BookingsController < BaseController
 
-  skip_before_action :authenticate_user_from_token!,
-    :only => [:index, :show]
+  skip_before_action :authenticate_user_from_token!, :only => [:index, :show]
 
 
   def index
@@ -21,7 +20,6 @@ class BookingsController < BaseController
 
     if form.validate params[:booking]
       form.set_user current_user
-
       form.save
 
       render :json => form.model

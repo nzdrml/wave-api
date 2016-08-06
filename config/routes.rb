@@ -10,7 +10,11 @@ Rails.application.routes.draw do
 
   root 'application#index'
 
-  resources :users, :only => [:index, :show, :create]
+  resources :users, :only => [:index, :show, :create] do
+    member do
+      post :set_preferred_point
+    end
+  end
 
   resources :points, :only => [:index, :show, :create]
 

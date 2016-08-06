@@ -24,4 +24,22 @@ class UsersController < BaseController
     end
   end
 
+  def set_preferred_point
+    point = Point.find_by_id params[:point_id]
+    user = User.find_by_id params[:id]
+
+    if point && user && params[:type].present?
+      user.send "preferred_#{params[:type]}_point=", point
+      head :ok
+    else
+      render(
+        :json => {
+          :message => 'Point or User does not exist'
+        },
+        :status => :unprocessable_entity
+      )
+    end
+
+  end
+
 end

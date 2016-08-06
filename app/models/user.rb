@@ -6,7 +6,6 @@ class User < ActiveRecord::Base
     :rememberable, :trackable
 
   has_many :accesses, :dependent => :destroy
-
   has_many :bookings
 
   has_many :point_users, :dependent => :destroy
@@ -20,6 +19,9 @@ class User < ActiveRecord::Base
             :through => :dropoff_type,
             :source => :point
 
+  has_one :home_address, :class_name => 'Address'
+  has_one :work_address, :class_name => 'Address'
+  
 
   def self.find_for_database_authentication warden_conditions
     conditions = warden_conditions.dup

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160711103145) do
+ActiveRecord::Schema.define(version: 20160806141806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(version: 20160711103145) do
     t.integer  "user_id",        null: false
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "addresses", force: :cascade do |t|
+    t.string  "street_number"
+    t.text    "route",               null: false
+    t.string  "locality",            null: false
+    t.string  "administrative_area", null: false
+    t.string  "country",             null: false
+    t.string  "postal_code",         null: false
+    t.text    "coordinates"
+    t.integer "user_id"
   end
 
   create_table "bookings", force: :cascade do |t|
@@ -72,6 +83,15 @@ ActiveRecord::Schema.define(version: 20160711103145) do
   end
 
   add_index "oauth_applications", ["uid"], name: "index_oauth_applications_on_uid", unique: true, using: :btree
+
+  create_table "point_users", force: :cascade do |t|
+    t.integer "point_id",   null: false
+    t.integer "user_id",    null: false
+    t.integer "point_type", null: false
+  end
+
+  add_index "point_users", ["point_id"], name: "index_point_users_on_point_id", using: :btree
+  add_index "point_users", ["user_id"], name: "index_point_users_on_user_id", using: :btree
 
   create_table "points", force: :cascade do |t|
     t.string "name",        null: false

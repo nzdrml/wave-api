@@ -7,10 +7,6 @@ class RoutesController < BaseController
     render :json => Route.all
   end
 
-  # def user_bookings
-  #   render :json => current_user.bookings
-  # end
-
   def show
     render :json => Route.find(params[:id])
   end

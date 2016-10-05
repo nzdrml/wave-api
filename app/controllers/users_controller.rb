@@ -42,4 +42,13 @@ class UsersController < BaseController
 
   end
 
+  def addresses
+    if Address::TYPES.include?(params[:type]) && params[:id].present?
+      render :json => User.find(params[:id]).send("#{params[:type]}_address")
+    else
+      render :json => {:message => 'No such address type'},
+        :status => :unprocessable_entity
+    end
+  end
+
 end

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     member do
       post :set_preferred_point
       get :addresses
+      get :preferred_points
     end
   end
 

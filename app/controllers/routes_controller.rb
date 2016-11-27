@@ -7,10 +7,6 @@ class RoutesController < BaseController
     render :json => Route.all
   end
 
-  # def user_bookings
-  #   render :json => current_user.bookings
-  # end
-
   def show
     render :json => Route.find(params[:id])
   end
@@ -21,7 +17,7 @@ class RoutesController < BaseController
     if form.validate params[:route]
       form.save
 
-      render :json => form.model
+      render :json => form.model, :serializer => SessionSerializer
     else
       render(
         :json => {:message => form.errors}, :status => :unprocessable_entity

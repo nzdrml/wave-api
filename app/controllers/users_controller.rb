@@ -28,7 +28,7 @@ class UsersController < BaseController
     point = Point.find_by_id params[:point_id]
     user = User.find_by_id params[:id]
 
-    if point && user && params[:type].present?
+    if point && user && Point::TYPES.include?(params[:type])
       user.send "preferred_#{params[:type]}_point=", point
       head :ok
     else
@@ -40,6 +40,26 @@ class UsersController < BaseController
       )
     end
 
+  end
+
+  def addresses
+    if Address::TYPES.include?(params[:type]) && params[:id].present?
+      render :json => User.find(params[:id]).send("#{params[:type]}_address")
+    else
+      render :json => {:message => 'No such address type'},
+        :status => :unprocessable_entity
+    end
+  end
+
+  def preferred_points
+    if Point::TYPES.include?(params[:type]) && params[:id].present?
+
+      render :json => User.find(params[:id]).
+        send("preferred_#{params[:type]}_point")
+    else
+      render :json => {:message => 'No such point'},
+        :status => :unprocessable_entity
+    end
   end
 
 end

@@ -17,7 +17,7 @@ class RoutesController < BaseController
     if form.validate params[:route]
       form.save
 
-      render :json => form.model
+      render :json => form.model, :serializer => SessionSerializer
     else
       render(
         :json => {:message => form.errors}, :status => :unprocessable_entity
